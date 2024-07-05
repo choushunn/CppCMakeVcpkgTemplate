@@ -5,6 +5,11 @@
       "name": "opencv4",
       "default-features": false,
       "features": ["openmp", "default-features","tbb"]
-    }
+    },
+    "libevent",
+    "boost-asio",
+		"fftw3",
+		"inih",
+		"boost-signals2"
   ]
 }

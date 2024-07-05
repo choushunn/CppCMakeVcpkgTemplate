@@ -1,18 +1,18 @@
 {
   "cmake.configureSettings": {
-    "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    "CMAKE_TOOLCHAIN_FILE": "C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
   },
   "vcpkg.target.defaultTriplet": "x64-mingw-dynamic",
   "vcpkg.target.useStaticLib": false,
   "cmake.configureArgs": [
     "-DVCPKG_APPLOCAL_DEPS=ON",
     "-DX_VCPKG_APPLOCAL_DEPS_INSTALL=ON",
-    "-DVCPKG_MANIFEST_MODE=ON",
-    "-DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic"
+    "-DVCPKG_TARGET_TRIPLET=x64-mingw-dynamic",
+    "-DVCPKG_MANIFEST_MODE=OFF"
   ],
   "vcpkg.general.enable": true,
   "vcpkg.target.hostTriplet": "x64-windows",
   "vcpkg.target.installDependencies": true,
   "vcpkg.target.preferSystemLibs": false,
-  "vcpkg.target.useManifest": true
+  "vcpkg.target.useManifest": false
 }

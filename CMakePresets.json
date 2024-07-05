@@ -16,7 +16,6 @@
       "generator": "Ninja Multi-Config",
       "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
       "cacheVariables": {
-        "VCPKG_DEFAULT_TRIPLET": "x64-mingw-dynamic",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "TRUE"
       }
     }
