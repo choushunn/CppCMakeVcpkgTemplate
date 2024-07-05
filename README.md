@@ -1,3 +1,5 @@
+## Visual Studio 运行 CPP
+
 ## VSCODE 运行 CPP
 ### VSCODE 插件
 - C/C++
@@ -11,7 +13,14 @@
 - CMakePresets.json  # 配置 CMake 构建系统的行为,定义构建目标、配置参数、环境变量等。
 > 
 >
-
+### VSCODE
+- https://code.visualstudio.com/Download
 ### CMake
-
+- https://cmake.org/documentation/
 ### VCPKG
+- https://vcpkg.link/search
+- https://github.com/microsoft/vcpkg
+- https://vcpkg.io/en/index.html
+
+## C++ 项目目录结构
+### C++ 项目编译静态库/动态库
