@@ -12,7 +12,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 获取 ./src 目录下所有 cpp 文件
 file(GLOB TARGET_SRC "./src/*.cpp" )
-
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 # 打印 VCPKG_INSTALLED_DIR 变量的值
 message(STATUS ${VCPKG_INSTALLED_DIR})
 

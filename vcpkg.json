@@ -4,12 +4,13 @@
     {
       "name": "opencv4",
       "default-features": false,
-      "features": ["openmp", "default-features","tbb"]
+      "features": ["openmp","jpeg","png","ffmpeg"]
     },
     "libevent",
     "boost-asio",
 		"fftw3",
 		"inih",
-		"boost-signals2"
+		"boost-signals2",
+    "argparse"
   ]
 }

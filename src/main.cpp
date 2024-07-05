@@ -3,6 +3,8 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
+#include "example.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +12,7 @@ int main(int argc, char *argv[])
     std::cout << "Hello world!" << std::endl;
 
     // 创建一个 VideoCapture 对象来访问默认摄像头
-    cv::VideoCapture cap(0,cv::CAP_DSHOW);
+    cv::VideoCapture cap(0);
 
     // 检查摄像头是否成功打开
     if (!cap.isOpened())
