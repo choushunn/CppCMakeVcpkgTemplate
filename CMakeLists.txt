@@ -17,7 +17,7 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 message(STATUS ${VCPKG_INSTALLED_DIR})
 
 # 设置 OpenCV_DIR 变量为 OpenCV 的安装路径
-set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-mingw-dynamic/share/opencv4")
+set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv4")
 
 # 查找并要求使用 OpenCV 包
 find_package(OpenCV REQUIRED)
