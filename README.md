@@ -1,4 +1,5 @@
 ## Visual Studio 运行 CPP
+CMakeLists.txt
 
 ## VSCODE 运行 CPP
 ### VSCODE 插件
@@ -11,7 +12,7 @@
 - task.json     # 定义 VS Code 的任务runner,包括编译、构建、测试等常见的任务。
 - vcpkg.json    # 管理 C++ 项目的依赖库,让 vcpkg 自动下载、构建和链接这些库。
 - CMakePresets.json  # 配置 CMake 构建系统的行为,定义构建目标、配置参数、环境变量等。
-> 
+- .clang-format # 
 >
 ### VSCODE
 - https://code.visualstudio.com/Download
