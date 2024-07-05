@@ -1,96 +1,91 @@
 {
-    "version": 8,
-    "cmakeMinimumRequired": {
-        "major": 3,
-        "minor": 21,
-        "patch": 0
+  "version": 8,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "mingw-Ninja-vcpkg",
+      "displayName": "GCC 11.2.0 x86_64-w64-mingw32",
+      "description": "使用编译器: C = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\gcc.exe, CXX = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe",
+      "binaryDir": "${sourceDir}/builds/${presetName}",
+      "installDir": "${sourceDir}/builds/install/${presetName}",
+      "generator": "Ninja",
+      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
+        "CMAKE_C_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/g++.exe"
+      }
     },
-    "configurePresets": [
-        {
-            "name": "mingw-Ninja-vcpkg",
-            "displayName": "GCC 11.2.0 x86_64-w64-mingw32",
-            "description": "使用编译器: C = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\gcc.exe, CXX = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe",
-            "binaryDir": "${sourceDir}/builds/${presetName}",
-            "installDir": "${sourceDir}/builds/install/${presetName}",
-            "generator": "Ninja",
-            "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
-            "cacheVariables": {
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
-                "CMAKE_C_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/gcc.exe",
-                "CMAKE_CXX_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/g++.exe",
-                "CMAKE_BUILD_TYPE": ""
-            }
-        },
-        {
-            "name": "MSVC-x64-vcpkg",
-            "displayName": "Visual Studio Enterprise 2022 Release - amd64",
-            "description": "将编译器用于 Visual Studio 17 2022 (x64 体系结构)",            
-            "toolset": "host=x64",
-            "architecture": "x64",
-            "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
-            "binaryDir": "${sourceDir}/builds/${presetName}",
-            "installDir": "${sourceDir}/builds/install/${presetName}",
-            "generator": "Visual Studio 17 2022",
-            "cacheVariables": {
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
-                "CMAKE_C_COMPILER": "cl.exe",
-                "CMAKE_CXX_COMPILER": "cl.exe"
-            }
-        }
-    ],
-    "buildPresets": [
-        {
-            "name": "MSVC-X64-debug",
-            "configurePreset": "MSVC-x64-vcpkg",
-            "displayName": "Build (Debug)",
-            "description": "Build with Ninja/vcpkg (Debug)",
-            "configuration": "Debug"
-        },
-        {
-            "name": "MSVC-X64-release",
-            "configurePreset": "MSVC-x64-vcpkg",
-            "displayName": "Build (Release)",
-            "description": "Build with Ninja/vcpkg (Release)",
-            "configuration": "Release"
-        },
-        {
-            "name": "ninja-vcpkg-debug",
-            "configurePreset": "mingw-Ninja-vcpkg",
-            "displayName": "Build",
-            "description": "Build with Ninja/vcpkg",
-            "configuration": "Debug"
-        },
-        {
-            "name": "ninja-vcpkg-release",
-            "configurePreset": "mingw-Ninja-vcpkg",
-            "displayName": "Build",
-            "description": "Build with Ninja/vcpkg",
-            "configuration": "Release"
-        }
-    ],
-    "testPresets": [
-        {
-            "name": "test-ninja-vcpkg",
-            "configurePreset": "ninja-vcpkg-debug",
-            "hidden": true
-        },
-        {
-            "name": "test-debug",
-            "description": "Test (Debug)",
-            "displayName": "Test (Debug)",
-            "configuration": "Debug",
-            "inherits": [
-                "test-ninja-vcpkg"
-            ]
-        },
-        {
-            "name": "test-release",
-            "description": "Test (Release)",
-            "displayName": "Test (Release)",
-            "configuration": "Release",
-            "inherits": [
-                "test-ninja-vcpkg"
-            ]
-        }
-    ]
+    {
+      "name": "MSVC-x64-vcpkg",
+      "displayName": "Visual Studio Enterprise 2022 Release - amd64",
+      "description": "将编译器用于 Visual Studio 17 2022 (x64 体系结构)",
+      "toolset": "host=x64",
+      "architecture": "x64",
+      "generator": "Visual Studio 17 2022",
+      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "binaryDir": "${sourceDir}/builds/${presetName}",
+      "installDir": "${sourceDir}/builds/install/${presetName}",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "MSVC-X64-debug",
+      "configurePreset": "MSVC-x64-vcpkg",
+      "displayName": "Build (Debug)",
+      "description": "Build with Ninja/vcpkg (Debug)",
+      "configuration": "Debug"
+    },
+    {
+      "name": "MSVC-X64-release",
+      "configurePreset": "MSVC-x64-vcpkg",
+      "displayName": "Build (Release)",
+      "description": "Build with Ninja/vcpkg (Release)",
+      "configuration": "Release"
+    },
+    {
+      "name": "ninja-vcpkg-debug",
+      "configurePreset": "mingw-Ninja-vcpkg",
+      "displayName": "Build (Debug)",
+      "description": "Build with Ninja/vcpkg (Debug)",
+      "configuration": "Debug"
+    },
+    {
+      "name": "ninja-vcpkg-release",
+      "configurePreset": "mingw-Ninja-vcpkg",
+      "displayName": "Build (Release)",
+      "description": "Build with Ninja/vcpkg (Release)",
+      "configuration": "Release"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test-ninja-vcpkg",
+      "configurePreset": "ninja-vcpkg-debug",
+      "hidden": true
+    },
+    {
+      "name": "test-debug",
+      "description": "Test (Debug)",
+      "displayName": "Test (Debug)",
+      "configuration": "Debug",
+      "inherits": ["test-ninja-vcpkg"]
+    },
+    {
+      "name": "test-release",
+      "description": "Test (Release)",
+      "displayName": "Test (Release)",
+      "configuration": "Release",
+      "inherits": ["test-ninja-vcpkg"]
+    }
+  ]
 }
