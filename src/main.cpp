@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     std::cout << "Hello world!" << std::endl;
 
     // 创建一个 VideoCapture 对象来访问默认摄像头
-    cv::VideoCapture cap(0);
+    cv::VideoCapture cap(0,cv::CAP_DSHOW);
 
     // 检查摄像头是否成功打开
     if (!cap.isOpened())
@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
         spdlog::error("Failed to open default camera");
         return -1;
     }
-
+    cv::Mat frame;
     // 无限循环读取和显示视频帧
     while (true)
     {
-        cv::Mat frame;
+        
         cap >> frame;
 
         // 显示视频帧

@@ -8,11 +8,17 @@
   "configurePresets": [
     {
       "name": "ninja-multi-vcpkg",
+      "hidden": true,
       "displayName": "Ninja Multi-Config",
-      "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
+      "description": "使用 vcpkg 工具链进行配置,并为所有配置生成 Ninja 项目文件。",
       "binaryDir": "${sourceDir}/builds/${presetName}",
+      "installDir": "${sourceDir}/builds/install/${presetName}",
       "generator": "Ninja Multi-Config",
-      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_DEFAULT_TRIPLET": "x64-mingw-dynamic",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "TRUE"
+      }
     }
   ],
   "buildPresets": [

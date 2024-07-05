@@ -17,7 +17,7 @@ file(GLOB TARGET_SRC "./src/*.cpp" )
 message(STATUS ${VCPKG_INSTALLED_DIR})
 
 # 设置 OpenCV_DIR 变量为 OpenCV 的安装路径
-set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv4")
+set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows-static/share/opencv4")
 
 # 查找并要求使用 OpenCV 包
 find_package(OpenCV REQUIRED)
@@ -34,6 +34,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog_header_only)
 
 # 将 OpenCV 库链接到可执行目标
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
+
 # 设置输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
