@@ -11,6 +11,11 @@
     "fftw3",
     "boost-signals2",
     "argparse",
-    "vtk"
+    "vtk",
+    "opencl",
+    "openssl",
+    "leveldb",
+    "libwebsockets",
+    "beast"
   ]
 }

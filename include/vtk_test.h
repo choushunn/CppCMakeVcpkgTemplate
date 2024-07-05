@@ -1,4 +1,6 @@
 #pragma once
+
+
 #include <vtkActor.h>
 #include <vtkAutoInit.h>
 #include <vtkConeSource.h>
