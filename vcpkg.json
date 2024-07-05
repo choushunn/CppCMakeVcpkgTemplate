@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "spdlog",
+    {
+      "name": "opencv4",
+      "default-features": false,
+      "features": ["openmp", "default-features", "tbb"]
+    }
+  ]
+}
