@@ -14,6 +14,18 @@
       "command": "clean",
       "problemMatcher": [],
       "detail": "CMake 模板 清理 任务"
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: 生成",
+      "command": "build",
+      "targets": [
+        "vcpkg_demo"
+      ],
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "CMake 模板 生成 任务"
     }
   ]
 }

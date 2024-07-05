@@ -24,7 +24,8 @@ find_package(OpenCV REQUIRED)
 
 # 查找并要求使用配置好的 spdlog 包
 find_package(spdlog CONFIG REQUIRED)
-
+find_package(VTK REQUIRED)
+include("${VTK_USE_FILE}")
 # 创建与项目名称相同的可执行目标
 add_executable(${PROJECT_NAME} 
                ${TARGET_SRC})
@@ -34,7 +35,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog_header_only)
 
 # 将 OpenCV 库链接到可执行目标
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
-
+target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
 # 设置输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
