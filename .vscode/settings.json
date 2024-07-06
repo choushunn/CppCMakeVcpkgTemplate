@@ -118,5 +118,8 @@
     "*.tcc": "cpp",
     "string_view": "cpp"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.defaultLanguage": "cpp", // ctrl+N新建文件后默认的语言
+  "c-cpp-flylint.cppcheck.enable": true,
+  "c-cpp-flylint.flexelint.enable": false
 }

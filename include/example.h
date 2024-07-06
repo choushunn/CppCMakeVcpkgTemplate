@@ -5,6 +5,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 #include <spdlog/spdlog.h>
+#include "event_test.h"
 void example_sqlite3()
 {
 }

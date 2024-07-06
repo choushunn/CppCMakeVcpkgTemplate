@@ -1,6 +1,7 @@
 #pragma once
 
 #include <boost/signals2.hpp>
+#include <opencv2/core.hpp>
 #include <spdlog/spdlog.h>
 
 // 定义一个信号类型
