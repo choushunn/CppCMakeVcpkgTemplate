@@ -2,6 +2,7 @@
 
 #include <boost/signals2.hpp>
 #include <spdlog/spdlog.h>
+
 // 定义一个信号类型
 typedef boost::signals2::signal<void(int)> MySignal;
 

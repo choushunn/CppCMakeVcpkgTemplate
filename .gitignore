@@ -35,3 +35,5 @@
 /builds
 .DS_Store
 /build
+/out
+/.vs
