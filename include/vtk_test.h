@@ -20,6 +20,7 @@ VTK_MODULE_INIT(vtkRenderingOpenGL2);
 VTK_MODULE_INIT(vtkInteractionStyle);
 VTK_MODULE_INIT(vtkRenderingFreeType)
 
+
 int test_vtk()
 {
     //圆锥模型
@@ -58,6 +59,7 @@ int test_vtk()
     // transform->RotateZ(45.0);            // 绕 Z 轴旋转 45 度
     // transform->RotateX(45.0);            // 绕 X 轴旋转 45 度
     transform->RotateY(30.0);               // 绕 Y 轴旋转 45 度
+    
     actor->SetUserTransform(transform);
 
    // 创建渲染器和渲染窗口

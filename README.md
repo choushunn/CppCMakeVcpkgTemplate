@@ -25,3 +25,12 @@ CMakeLists.txt
 
 ## C++ 项目目录结构
 ### C++ 项目编译静态库/动态库
+
+## C++ 常用库简介
+### OpenCV
+
+### Qt
+
+### Boost
+
+### libevent

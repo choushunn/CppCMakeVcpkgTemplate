@@ -1,21 +1,23 @@
 #pragma once
-#include <spdlog/spdlog.h>
+#include "signals2_test.h"
+#include "vtk_test.h"
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
-#include "vtk_test.h"
-
-void example_sqlite3(){
-
+#include <spdlog/spdlog.h>
+void example_sqlite3()
+{
 }
 
-void example_spdlog(){
+void example_spdlog()
+{
     spdlog::info("info");
     spdlog::critical("critical");
 }
 
 
-int test_opencv_videoio(){
+int test_opencv_videoio()
+{
 
     // 创建一个 VideoCapture 对象来访问默认摄像头
     cv::VideoCapture cap(0);
