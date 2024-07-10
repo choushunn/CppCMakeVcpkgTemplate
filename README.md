@@ -1,7 +1,10 @@
 ## Visual Studio 运行 CPP
 CMakeLists.txt
-"toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
 include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
+
+CMakePresets.json 
+"toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
+
 ## VSCODE 运行 CPP
 ### VSCODE 插件
 - C/C++

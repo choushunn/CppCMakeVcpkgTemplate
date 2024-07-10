@@ -3,6 +3,7 @@
 
 int main(int argc, char *argv[])
 {
+    
     example_spdlog();
     test_serial();
     test_signals();
