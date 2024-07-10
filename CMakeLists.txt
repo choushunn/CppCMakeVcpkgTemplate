@@ -12,7 +12,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # 获取 ./src 目录下所有 cpp 文件
 file(GLOB TARGET_SRC "./src/*.cpp" )
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+# include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
 # 打印 VCPKG_INSTALLED_DIR 变量的值
 message(STATUS ${VCPKG_INSTALLED_DIR})
 
@@ -26,6 +28,8 @@ find_package(OpenCV REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 
 find_package(Libevent CONFIG REQUIRED)
+find_package(boost_asio CONFIG REQUIRED)
+find_package(boost_beast REQUIRED CONFIG)
 find_package(VTK REQUIRED)
 include("${VTK_USE_FILE}")
 # 创建与项目名称相同的可执行目标
@@ -36,9 +40,13 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog_header_only)
 
 # 将 OpenCV 库链接到可执行目标
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${VTK_LIBRARIES})
-target_link_libraries(${PROJECT_NAME} PRIVATE libevent::core libevent::extra)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+                                ${OpenCV_LIBS}
+                                ${VTK_LIBRARIES}
+                                libevent::core libevent::extra
+                                Boost::asio
+                                Boost::beast
+                        )
 # 设置输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)

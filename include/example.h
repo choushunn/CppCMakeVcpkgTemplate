@@ -1,11 +1,12 @@
 #pragma once
+#include "boost_serial_test.h"
+// #include "event_test.h"
 #include "signals2_test.h"
 #include "vtk_test.h"
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/videoio.hpp>
 #include <spdlog/spdlog.h>
-#include "event_test.h"
 void example_sqlite3()
 {
 }
@@ -15,7 +16,6 @@ void example_spdlog()
     spdlog::info("info");
     spdlog::critical("critical");
 }
-
 
 int test_opencv_videoio()
 {

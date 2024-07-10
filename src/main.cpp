@@ -4,8 +4,9 @@
 int main(int argc, char *argv[])
 {
     example_spdlog();
+    test_serial();
     test_signals();
     test_vtk();
-    test_libevent();
+    // test_libevent();
     return 0;
 }

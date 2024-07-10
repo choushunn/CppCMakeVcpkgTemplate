@@ -1,6 +1,7 @@
 ## Visual Studio 运行 CPP
 CMakeLists.txt
-
+"toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
+include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
 ## VSCODE 运行 CPP
 ### VSCODE 插件
 - C/C++
@@ -25,6 +26,8 @@ CMakeLists.txt
 
 ## C++ 项目目录结构
 ### C++ 项目编译静态库/动态库
+# 设置临时环境变量
+export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
 
 ## C++ 常用库简介
 ### OpenCV

@@ -16,6 +16,6 @@
     "openssl",
     "leveldb",
     "libwebsockets",
-    "beast"
+    "boost-beast"
   ]
 }
