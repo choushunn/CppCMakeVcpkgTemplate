@@ -1,3 +1,4 @@
+#!/bin/bash
 set -e
 
 # 交叉编译设置
@@ -9,15 +10,20 @@ if [ "$CROSS_COMPILE" == "aarch64" ]; then
     export CXX=${GCC_COMPILER}-g++
 fi
 
+set -e
+
 ROOT_PWD=$( cd "$( dirname $0 )" && cd -P "$( dirname "$SOURCE" )" && pwd )
 
 # 构建目录
 BUILD_DIR=${ROOT_PWD}/build
-if [ ! -d "${BUILD_DIR}" ]; then
-  mkdir -p ${BUILD_DIR}
+if [ -d "${BUILD_DIR}" ]; then
+  rm -rf ${BUILD_DIR}
+  echo "Deleting existing build directory: ${BUILD_DIR}"
 fi
+mkdir -p ${BUILD_DIR}
 
 cd ${BUILD_DIR}
+
 
 # 配置和构建
 if [ "$CROSS_COMPILE" == "aarch64" ]; then
