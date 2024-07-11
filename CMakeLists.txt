@@ -21,7 +21,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Add vcpkg
 ############################################################
 # include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
-include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
+#include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
 # 打印 VCPKG_INSTALLED_DIR 变量的值
 message(STATUS ${VCPKG_INSTALLED_DIR})
 

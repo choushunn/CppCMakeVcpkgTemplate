@@ -1,93 +1,89 @@
-{
-  "version": 5,
-  "cmakeMinimumRequired": {
-    "major": 3,
-    "minor": 21,
-    "patch": 0
-  },
+﻿{
+  "version": 3,
   "configurePresets": [
     {
-      "name": "mingw-Ninja-vcpkg",
-      "displayName": "GCC 11.2.0 x86_64-w64-mingw32",
-      "description": "使用编译器: C = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\gcc.exe, CXX = C:\\Programs\\Qt\\Tools\\mingw1120_64\\bin\\g++.exe",
-      "binaryDir": "${sourceDir}/builds/${presetName}",
-      "installDir": "${sourceDir}/builds/install/${presetName}",
+      "name": "linux-debug",
+      "displayName": "Linux Debug",
+      "description": "面向适用于 Linux 的 Windows 子系统(WSL)或远程 Linux 系统。",
       "generator": "Ninja",
-      // "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
-      "toolchainFile": "C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake",
-      "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
-        "CMAKE_C_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/gcc.exe",
-        "CMAKE_CXX_COMPILER": "C:/Programs/Qt/Tools/mingw1120_64/bin/g++.exe"
-      }
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",     
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "vendor": { "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": { "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}" } }
     },
     {
-      "name": "MSVC-x64-vcpkg",
-      "displayName": "Visual Studio Enterprise 2022 Release - amd64",
-      "description": "将编译器用于 Visual Studio 17 2022 (x64 体系结构)",
-      "toolset": "host=x64",
-      "architecture": "x64",
-      "generator": "Visual Studio 17 2022",
-      // "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
-      "toolchainFile": "C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake",
-      "binaryDir": "${sourceDir}/builds/${presetName}",
-      "installDir": "${sourceDir}/builds/install/${presetName}",
+      "name": "macos-debug",
+      "displayName": "macOS Debug",
+      "description": "以远程 macOS 系统为目标。",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
+      },
+      "vendor": { "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": { "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}" } }
+    },
+    {
+      "name": "windows-base",
+      "description": "面向具有 Visual Studio 开发环境的 Windows。",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "toolchainFile": "C:\\Programs\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake",
       "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/builds/install/${presetName}",
         "CMAKE_C_COMPILER": "cl.exe",
         "CMAKE_CXX_COMPILER": "cl.exe"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
       }
-    }
-  ],
-  "buildPresets": [
-    {
-      "name": "MSVC-X64-debug",
-      "configurePreset": "MSVC-x64-vcpkg",
-      "displayName": "Build (Debug)",
-      "description": "Build with Ninja/vcpkg (Debug)",
-      "configuration": "Debug"
     },
     {
-      "name": "MSVC-X64-release",
-      "configurePreset": "MSVC-x64-vcpkg",
-      "displayName": "Build (Release)",
-      "description": "Build with Ninja/vcpkg (Release)",
-      "configuration": "Release"
+      "name": "x64-debug",
+      "displayName": "x64 Debug",
+      "description": "使用 Visual Studio 开发环境定向到 Windows (64 位)。(Debug)",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
     },
     {
-      "name": "ninja-vcpkg-debug",
-      "configurePreset": "mingw-Ninja-vcpkg",
-      "displayName": "Build (Debug)",
-      "description": "Build with Ninja/vcpkg (Debug)",
-      "configuration": "Debug"
+      "name": "x64-release",
+      "displayName": "x64 Release",
+      "description": "使用 Visual Studio 开发环境定向到 Windows (64 位)。(RelWithDebInfo)",
+      "inherits": "x64-debug",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     },
     {
-      "name": "ninja-vcpkg-release",
-      "configurePreset": "mingw-Ninja-vcpkg",
-      "displayName": "Build (Release)",
-      "description": "Build with Ninja/vcpkg (Release)",
-      "configuration": "Release"
-    }
-  ],
-  "testPresets": [
-    {
-      "name": "test-ninja-vcpkg",
-      "configurePreset": "ninja-vcpkg-debug",
-      "hidden": true
+      "name": "x86-debug",
+      "displayName": "x86 Debug",
+      "description": "用 Visual Studio 开发环境定向到 Windows (32 位)。(Debug)",
+      "inherits": "windows-base",
+      "architecture": {
+        "value": "x86",
+        "strategy": "external"
+      },
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
     },
     {
-      "name": "test-debug",
-      "description": "Test (Debug)",
-      "displayName": "Test (Debug)",
-      "configuration": "Debug",
-      "inherits": ["test-ninja-vcpkg"]
-    },
-    {
-      "name": "test-release",
-      "description": "Test (Release)",
-      "displayName": "Test (Release)",
-      "configuration": "Release",
-      "inherits": ["test-ninja-vcpkg"]
+      "name": "x86-release",
+      "displayName": "x86 Release",
+      "description": "用 Visual Studio 开发环境定向到 Windows (32 位)。(RelWithDebInfo)",
+      "inherits": "x86-debug",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
     }
   ]
 }
