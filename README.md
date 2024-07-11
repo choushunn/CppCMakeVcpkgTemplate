@@ -33,15 +33,15 @@ CMakePresets.json
 export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
 
 ## C++ 常用库简介
-### OpenCV
+### [OpenCV](https://opencv.org"图像处理")
 
-### Qt
+### [Qt](https://www.qt.io/zh-cn"应用开发程序")
 
-### Boost
+### [Boost](https://www.boost.org"C++扩展库")
 
-### libevent
+### [libevent](https://libevent.org"常用的网络库")
+
+### [CMake - Upgrade Your Software Build System](https://cmake.org/)
 
 
-
-# cmake
 
