@@ -16,7 +16,7 @@ project(vcpkg_demo VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 ############################################################
 # Add vcpkg
 ############################################################
@@ -66,7 +66,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
                                 libevent::core libevent::extra
                                 Boost::asio
                                 Boost::beast
-                                sublibrary-static
                         )
 # 设置输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
