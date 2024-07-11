@@ -1,3 +1,4 @@
+[TOC]
 ## 编译运行 CPP 项目
 
 ### 常用工具
@@ -80,7 +81,7 @@ export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
 
 
 
-### C++ 常用库简介
+### C++ 常用库
 
 - [OpenCV](https://opencv.org)
 
