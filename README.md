@@ -1,9 +1,17 @@
-## Visual Studio 运行 CPP
-CMakeLists.txt
-include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
+## Visual Studio 运行 CPP 项目
+方式一：
 
-CMakePresets.json 
+```cmake
+# 添加到 CMakeLists.txt 文件中
+include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
+```
+
+方式二：
+
+```json
+// 添加到 CMakePresets.json 文件中
 "toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
+```
 
 ## VSCODE 运行 CPP
 ### VSCODE 插件
@@ -29,19 +37,25 @@ CMakePresets.json
 
 ## C++ 项目目录结构
 ### C++ 项目编译静态库/动态库
-# 设置临时环境变量
+
+## Linux 环境编译运行 C++ 项目
+
+1. 设置临时环境变量
+
+```bash
 export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
+```
 
 ## C++ 常用库简介
-### [OpenCV](https://opencv.org"图像处理")
+- [OpenCV](https://opencv.org)
 
-### [Qt](https://www.qt.io/zh-cn"应用开发程序")
+- [Qt](https://www.qt.io/zh-cn)
 
-### [Boost](https://www.boost.org"C++扩展库")
+- [Boost](https://www.boost.org)
 
-### [libevent](https://libevent.org"常用的网络库")
+- [libevent](https://libevent.org)
 
-### [CMake - Upgrade Your Software Build System](https://cmake.org/)
+- [CMake](https://cmake.org/)
 
-
+------
 

@@ -17,10 +17,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-
-# 获取 ./src 目录下所有 cpp 文件
-file(GLOB TARGET_SRC "./src/*.cpp" )
-
+############################################################
+# Add vcpkg
+############################################################
 # include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
 # 打印 VCPKG_INSTALLED_DIR 变量的值
@@ -31,20 +30,24 @@ set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv4")
 
 # 查找并要求使用 OpenCV 包
 find_package(OpenCV REQUIRED)
-
-# 查找并要求使用配置好的 spdlog 包
 find_package(spdlog CONFIG REQUIRED)
-
 find_package(Libevent CONFIG REQUIRED)
 find_package(boost_asio CONFIG REQUIRED)
 find_package(boost_beast REQUIRED CONFIG)
 find_package(VTK REQUIRED)
 include("${VTK_USE_FILE}")
 
+############################################################
+# Add sub directories
+############################################################
+add_subdirectory(sublibrary)
+add_subdirectory(subbinary)
 
 ############################################################
 # Create an executable
 ############################################################
+# 获取 ./src 目录下所有 cpp 文件
+file(GLOB TARGET_SRC "./src/*.cpp" )
 # 创建与项目名称相同的可执行目标
 add_executable(${PROJECT_NAME} 
                ${TARGET_SRC})
@@ -63,6 +66,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
                                 libevent::core libevent::extra
                                 Boost::asio
                                 Boost::beast
+                                sublibrary-static
                         )
 # 设置输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -87,7 +91,14 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/
 # enable_testing()
 # add_subdirectory(tests)
 
-
+############################################################
+# Create DEB
+############################################################
+# Tell CPack to generate a .deb package
+set(CPACK_GENERATOR "DEB")
+# Set a Package Maintainer.
+# This is required
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Spring")
 # 设置 CPack 项目名称和版本
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
