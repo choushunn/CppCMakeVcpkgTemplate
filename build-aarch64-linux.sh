@@ -29,7 +29,7 @@ cd ${BUILD_DIR}
 if [ "$CROSS_COMPILE" == "aarch64" ]; then
     cmake -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=aarch64 -DCMAKE_INSTALL_PREFIX=./install ..
 else
-    cmake -DCMAKE_INSTALL_PREFIX=./install ..
+    cmake -DCMAKE_INSTALL_PREFIX=../install ..
 fi
 
 make -j${nproc}
