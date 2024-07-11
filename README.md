@@ -1,9 +1,13 @@
 ## Visual Studio 运行 CPP
 CMakeLists.txt
-include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
+[include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")]("在CMakeLists中添加vcpkg的路径")
+
+
 
 CMakePresets.json 
-"toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
+["toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"]("添加指定文件")
+
+
 
 ## VSCODE 运行 CPP
 ### VSCODE 插件
