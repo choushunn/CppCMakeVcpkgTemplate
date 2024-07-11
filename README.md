@@ -1,13 +1,9 @@
 ## Visual Studio 运行 CPP
 CMakeLists.txt
-[include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")]("在CMakeLists中添加vcpkg的路径")
-
-
+include("C:/Programs/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
 CMakePresets.json 
-["toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"]("添加指定文件")
-
-
+"toolchainFile": "c:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
 ## VSCODE 运行 CPP
 ### VSCODE 插件
@@ -37,15 +33,15 @@ CMakePresets.json
 export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
 
 ## C++ 常用库简介
-### OpenCV
+### [OpenCV](https://opencv.org"图像处理")
 
-### Qt
+### [Qt](https://www.qt.io/zh-cn"应用开发程序")
 
-### Boost
+### [Boost](https://www.boost.org"C++扩展库")
 
-### libevent
+### [libevent](https://libevent.org"常用的网络库")
+
+### [CMake - Upgrade Your Software Build System](https://cmake.org/)
 
 
-
-# cmake
 
